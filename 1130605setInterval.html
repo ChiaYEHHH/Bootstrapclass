@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col6">
+                <button class="btn btn-danger" id="btn_Go">GO</button>
+            </div>
+            <div class="col6">
+                <button class="btn btn-info" id="btn_Stop">STOP</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="myText">123</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            const myText = $('.myText');
+            const btn_G = $('#btn_Go');
+            const btn_S = $('#btn_Stop');
+            console.log('btn_stop ok', btn_S);
+
+            let myInterval;
+            // 豎立旗杆
+            let goFlag=true;
+            // myText.append('<br> my content ');
+
+            btn_G.click(function (e) {
+                // if(!goFlag){
+                //     return false;
+                // }
+                myInterval = setInterval(() => {
+                    console.log('Hello');
+                    console.log('JS');
+                    myText.append('<br>  my content');
+                }, 1000);
+                goFlag=false;
+            });
+
+            btn_S.click(function (e) {
+                console.log('btn_S ok');
+                clearInterval(myInterval);
+                goFlag=true;
+            });
+
+        });
+    </script>
+</body>
+
+</html>
